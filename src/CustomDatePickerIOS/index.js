@@ -21,7 +21,8 @@ export default class CustomDatePickerIOS extends Component {
     animationIn: PropTypes.string,
     animationInTiming: PropTypes.number,
     animationOut: PropTypes.string,
-    animationOutTiming: PropTypes.number
+    animationOutTiming: PropTypes.number,
+    backdropOpacity: PropTypes.number
   };
 
   static defaultProps = {
@@ -34,7 +35,8 @@ export default class CustomDatePickerIOS extends Component {
     animationIn: 'slideInUp',
     animationInTiming: 300,
     animationOut: 'slideOutDown',
-    animationOutTiming: 300
+    animationOutTiming: 300,
+    backdropOpacity: 0.7
   };
 
   state = {
@@ -70,6 +72,7 @@ export default class CustomDatePickerIOS extends Component {
       animationInTiming,
       animationOut,
       animationOutTiming,
+      backdropOpacity,
       ...otherProps
     } = this.props;
 
@@ -91,7 +94,7 @@ export default class CustomDatePickerIOS extends Component {
     return (
       <Modal
         isVisible={isVisible}
-        backdropOpacity={0.0}
+        backdropOpacity={backdropOpacity}
         animationIn={animationIn}
         animationInTiming={animationInTiming}
         animationOut={animationOut}
