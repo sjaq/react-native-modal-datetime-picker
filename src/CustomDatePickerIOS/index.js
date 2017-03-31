@@ -18,6 +18,10 @@ export default class CustomDatePickerIOS extends Component {
     onCancel: PropTypes.func.isRequired,
     titleIOS: PropTypes.string,
     isVisible: PropTypes.bool,
+    animationIn: PropTypes.string,
+    animationInTiming: PropTypes.number,
+    animationOut: PropTypes.string,
+    animationOutTiming: PropTypes.number
   };
 
   static defaultProps = {
@@ -27,6 +31,10 @@ export default class CustomDatePickerIOS extends Component {
     mode: 'date',
     titleIOS: 'Pick a date',
     isVisible: false,
+    animationIn: 'slideInUp',
+    animationInTiming: 300,
+    animationOut: 'slideOutDown',
+    animationOutTiming: 300
   };
 
   state = {
@@ -58,6 +66,10 @@ export default class CustomDatePickerIOS extends Component {
       customTitleContainerIOS,
       datePickerContainerStyleIOS,
       date,
+      animationIn,
+      animationInTiming,
+      animationOut,
+      animationOutTiming,
       ...otherProps
     } = this.props;
 
@@ -77,7 +89,14 @@ export default class CustomDatePickerIOS extends Component {
       </View>
     );
     return (
-      <Modal isVisible={isVisible} style={styles.contentContainer}>
+      <Modal
+        isVisible={isVisible}
+        backdropOpacity={0.0}
+        animationIn={animationIn}
+        animationInTiming={animationInTiming}
+        animationOut={animationOut}
+        animationOutTiming={animationOutTiming}
+        style={styles.contentContainer}>
         <View style={[styles.datepickerContainer, datePickerContainerStyleIOS]}>
           {customTitleContainerIOS || titleContainer}
           <DatePickerIOS
