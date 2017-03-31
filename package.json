@@ -22,7 +22,7 @@
   "license": "ISC",
   "dependencies": {
     "moment": "^2.15.0",
-    "react-native-animated-modal": "^1.0.1"
+    "react-native-modal": "^2.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
